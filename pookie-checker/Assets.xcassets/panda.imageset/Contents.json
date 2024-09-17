@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "a-cute-panda-pixel-art.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

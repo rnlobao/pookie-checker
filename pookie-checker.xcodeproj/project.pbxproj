@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A5663552C991C0F0010650D /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5663542C991C0F0010650D /* LogEntry.swift */; };
+		4A5998912C95FDEF0086E34B /* AnimatedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */; };
+		4A5998992C95FE940086E34B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5998982C95FE940086E34B /* WidgetKit.framework */; };
+		4A59989B2C95FE940086E34B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A59989A2C95FE940086E34B /* SwiftUI.framework */; };
+		4A59989E2C95FE940086E34B /* InterWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */; };
+		4A5998A02C95FE940086E34B /* InterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989F2C95FE940086E34B /* InterWidget.swift */; };
+		4A5998A22C95FE950086E34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5998A12C95FE950086E34B /* Assets.xcassets */; };
+		4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */; };
 		4A69ED232C6A8CBC00DE8FAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */; };
 		4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */; };
@@ -14,9 +22,17 @@
 		4A69ED322C6A8CBE00DE8FAE /* pookie_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED312C6A8CBE00DE8FAE /* pookie_checkerTests.swift */; };
 		4A69ED3C2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED3B2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift */; };
 		4A69ED3E2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED3D2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift */; };
+		4A69ED4B2C6A90BE00DE8FAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4A5998A42C95FE950086E34B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A69ED152C6A8CBC00DE8FAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5998952C95FE940086E34B;
+			remoteInfo = InterWidgetExtension;
+		};
 		4A69ED2E2C6A8CBE00DE8FAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4A69ED152C6A8CBC00DE8FAE /* Project object */;
@@ -33,7 +49,30 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4A5998AA2C95FE950086E34B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4A5663542C991C0F0010650D /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedWidgetView.swift; sourceTree = "<group>"; };
+		4A5998962C95FE940086E34B /* InterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5998982C95FE940086E34B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4A59989A2C95FE940086E34B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterWidgetBundle.swift; sourceTree = "<group>"; };
+		4A59989F2C95FE940086E34B /* InterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterWidget.swift; sourceTree = "<group>"; };
+		4A5998A12C95FE950086E34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A5998A32C95FE950086E34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pookie-checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerApp.swift; sourceTree = "<group>"; };
 		4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,9 +83,19 @@
 		4A69ED372C6A8CBE00DE8FAE /* pookie-checkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED3B2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerUITests.swift; sourceTree = "<group>"; };
 		4A69ED3D2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A5998932C95FE940086E34B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A59989B2C95FE940086E34B /* SwiftUI.framework in Frameworks */,
+				4A5998992C95FE940086E34B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A69ED1A2C6A8CBC00DE8FAE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,12 +120,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A5998972C95FE940086E34B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A5998982C95FE940086E34B /* WidgetKit.framework */,
+				4A59989A2C95FE940086E34B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A59989C2C95FE940086E34B /* InterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */,
+				4A59989F2C95FE940086E34B /* InterWidget.swift */,
+				4A5998A12C95FE950086E34B /* Assets.xcassets */,
+				4A5998A32C95FE950086E34B /* Info.plist */,
+				4A5663542C991C0F0010650D /* LogEntry.swift */,
+			);
+			path = InterWidget;
+			sourceTree = "<group>";
+		};
 		4A69ED142C6A8CBC00DE8FAE = {
 			isa = PBXGroup;
 			children = (
 				4A69ED1F2C6A8CBC00DE8FAE /* pookie-checker */,
 				4A69ED302C6A8CBE00DE8FAE /* pookie-checkerTests */,
 				4A69ED3A2C6A8CBE00DE8FAE /* pookie-checkerUITests */,
+				4A59989C2C95FE940086E34B /* InterWidget */,
+				4A5998972C95FE940086E34B /* Frameworks */,
 				4A69ED1E2C6A8CBC00DE8FAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +159,7 @@
 				4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */,
 				4A69ED2D2C6A8CBE00DE8FAE /* pookie-checkerTests.xctest */,
 				4A69ED372C6A8CBE00DE8FAE /* pookie-checkerUITests.xctest */,
+				4A5998962C95FE940086E34B /* InterWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,10 +167,12 @@
 		4A69ED1F2C6A8CBC00DE8FAE /* pookie-checker */ = {
 			isa = PBXGroup;
 			children = (
+				4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */,
 				4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */,
 				4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */,
 				4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */,
 				4A69ED262C6A8CBE00DE8FAE /* Preview Content */,
+				4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */,
 			);
 			path = "pookie-checker";
 			sourceTree = "<group>";
@@ -130,6 +205,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4A5998952C95FE940086E34B /* InterWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A5998A72C95FE950086E34B /* Build configuration list for PBXNativeTarget "InterWidgetExtension" */;
+			buildPhases = (
+				4A5998922C95FE940086E34B /* Sources */,
+				4A5998932C95FE940086E34B /* Frameworks */,
+				4A5998942C95FE940086E34B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InterWidgetExtension;
+			productName = InterWidgetExtension;
+			productReference = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		4A69ED1C2C6A8CBC00DE8FAE /* pookie-checker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A69ED412C6A8CBE00DE8FAE /* Build configuration list for PBXNativeTarget "pookie-checker" */;
@@ -137,10 +229,12 @@
 				4A69ED192C6A8CBC00DE8FAE /* Sources */,
 				4A69ED1A2C6A8CBC00DE8FAE /* Frameworks */,
 				4A69ED1B2C6A8CBC00DE8FAE /* Resources */,
+				4A5998AA2C95FE950086E34B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4A5998A52C95FE950086E34B /* PBXTargetDependency */,
 			);
 			name = "pookie-checker";
 			productName = "pookie-checker";
@@ -193,6 +287,9 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					4A5998952C95FE940086E34B = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					4A69ED1C2C6A8CBC00DE8FAE = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -222,17 +319,27 @@
 				4A69ED1C2C6A8CBC00DE8FAE /* pookie-checker */,
 				4A69ED2C2C6A8CBE00DE8FAE /* pookie-checkerTests */,
 				4A69ED362C6A8CBE00DE8FAE /* pookie-checkerUITests */,
+				4A5998952C95FE940086E34B /* InterWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A5998942C95FE940086E34B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5998A22C95FE950086E34B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A69ED1B2C6A8CBC00DE8FAE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4A69ED282C6A8CBE00DE8FAE /* Preview Assets.xcassets in Resources */,
 				4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */,
+				4A69ED4B2C6A90BE00DE8FAE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +360,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A5998922C95FE940086E34B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5998A02C95FE940086E34B /* InterWidget.swift in Sources */,
+				4A59989E2C95FE940086E34B /* InterWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A69ED192C6A8CBC00DE8FAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5998912C95FDEF0086E34B /* AnimatedWidgetView.swift in Sources */,
+				4A5663552C991C0F0010650D /* LogEntry.swift in Sources */,
 				4A69ED232C6A8CBC00DE8FAE /* ContentView.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,
 			);
@@ -282,6 +400,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4A5998A52C95FE950086E34B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5998952C95FE940086E34B /* InterWidgetExtension */;
+			targetProxy = 4A5998A42C95FE950086E34B /* PBXContainerItemProxy */;
+		};
 		4A69ED2F2C6A8CBE00DE8FAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4A69ED1C2C6A8CBC00DE8FAE /* pookie-checker */;
@@ -295,6 +418,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4A5998A82C95FE950086E34B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V6LX2TZ34;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InterWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robson.pookie-checker.InterWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A5998A92C95FE950086E34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2V6LX2TZ34;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = InterWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robson.pookie-checker.InterWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4A69ED3F2C6A8CBE00DE8FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -417,6 +594,7 @@
 		4A69ED422C6A8CBE00DE8FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +624,7 @@
 		4A69ED432C6A8CBE00DE8FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -551,6 +730,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A5998A72C95FE950086E34B /* Build configuration list for PBXNativeTarget "InterWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A5998A82C95FE950086E34B /* Debug */,
+				4A5998A92C95FE950086E34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A69ED182C6A8CBC00DE8FAE /* Build configuration list for PBXProject "pookie-checker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
