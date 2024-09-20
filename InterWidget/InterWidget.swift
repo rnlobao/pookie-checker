@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        SimpleEntry(date: Date(), quantidaDeMoedas: 1)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(date: Date(), quantidaDeMoedas: 1)
         completion(entry)
     }
     
@@ -25,7 +25,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = SimpleEntry(date: entryDate, quantidaDeMoedas: 1)
             entries.append(entry)
         }
         
@@ -35,8 +35,8 @@ struct Provider: TimelineProvider {
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let emoji: String
+    var date: Date
+    let quantidaDeMoedas: Int
 }
 
 struct InterWidgetEntryView : View {
@@ -44,23 +44,24 @@ struct InterWidgetEntryView : View {
     
     var body: some View {
         HStack {
-            // Botão
-            Button(intent: ) {
-                Label("Clique aqui", systemImage: "hand.point.right.fill")
-                    .labelStyle(IconOnlyLabelStyle()) // Exibe apenas o ícone
+            // Botão na esquerda
+            Button(action: {
+                print("Botão clicado!")
+            }) {
+                Text("Clique Aqui")
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
             }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
             
-            Spacer() // Espaçamento flexível entre o botão e a imagem
+            Spacer()
             
-            // Imagem
+            // Imagem na direita
             Image(systemName: "photo")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50, height: 50) // Definir o tamanho da imagem
+                .frame(width: 100, height: 100)
+                .padding()
         }
         .padding()
     }
@@ -88,6 +89,5 @@ struct InterWidget: Widget {
 #Preview(as: .systemSmall) {
     InterWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(date: .now, quantidaDeMoedas: 1)
 }

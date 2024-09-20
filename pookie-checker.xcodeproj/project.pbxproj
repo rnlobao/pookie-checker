@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A5663552C991C0F0010650D /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5663542C991C0F0010650D /* LogEntry.swift */; };
-		4A5998912C95FDEF0086E34B /* AnimatedWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */; };
 		4A5998992C95FE940086E34B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5998982C95FE940086E34B /* WidgetKit.framework */; };
 		4A59989B2C95FE940086E34B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A59989A2C95FE940086E34B /* SwiftUI.framework */; };
 		4A59989E2C95FE940086E34B /* InterWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */; };
@@ -16,13 +14,11 @@
 		4A5998A22C95FE950086E34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5998A12C95FE950086E34B /* Assets.xcassets */; };
 		4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */; };
-		4A69ED232C6A8CBC00DE8FAE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */; };
+		4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */; };
 		4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */; };
 		4A69ED282C6A8CBE00DE8FAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */; };
-		4A69ED322C6A8CBE00DE8FAE /* pookie_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED312C6A8CBE00DE8FAE /* pookie_checkerTests.swift */; };
-		4A69ED3C2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED3B2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift */; };
-		4A69ED3E2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED3D2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift */; };
 		4A69ED4B2C6A90BE00DE8FAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */; };
+		4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +60,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A5663542C991C0F0010650D /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
-		4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedWidgetView.swift; sourceTree = "<group>"; };
 		4A5998962C95FE940086E34B /* InterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5998982C95FE940086E34B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4A59989A2C95FE940086E34B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -75,15 +69,14 @@
 		4A5998A32C95FE950086E34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pookie-checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerApp.swift; sourceTree = "<group>"; };
-		4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A69ED2D2C6A8CBE00DE8FAE /* pookie-checkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A69ED312C6A8CBE00DE8FAE /* pookie_checkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerTests.swift; sourceTree = "<group>"; };
 		4A69ED372C6A8CBE00DE8FAE /* pookie-checkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A69ED3B2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerUITests.swift; sourceTree = "<group>"; };
-		4A69ED3D2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A8BF8672C9BACA9001B5EBB /* pookie-checker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pookie-checker.entitlements"; sourceTree = "<group>"; };
+		4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +129,6 @@
 				4A59989F2C95FE940086E34B /* InterWidget.swift */,
 				4A5998A12C95FE950086E34B /* Assets.xcassets */,
 				4A5998A32C95FE950086E34B /* Info.plist */,
-				4A5663542C991C0F0010650D /* LogEntry.swift */,
 			);
 			path = InterWidget;
 			sourceTree = "<group>";
@@ -145,8 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				4A69ED1F2C6A8CBC00DE8FAE /* pookie-checker */,
-				4A69ED302C6A8CBE00DE8FAE /* pookie-checkerTests */,
-				4A69ED3A2C6A8CBE00DE8FAE /* pookie-checkerUITests */,
 				4A59989C2C95FE940086E34B /* InterWidget */,
 				4A5998972C95FE940086E34B /* Frameworks */,
 				4A69ED1E2C6A8CBC00DE8FAE /* Products */,
@@ -167,12 +157,12 @@
 		4A69ED1F2C6A8CBC00DE8FAE /* pookie-checker */ = {
 			isa = PBXGroup;
 			children = (
+				4ABD88052C9E3AFC000C9D1A /* ui */,
+				4A8BF8672C9BACA9001B5EBB /* pookie-checker.entitlements */,
 				4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */,
 				4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */,
-				4A69ED222C6A8CBC00DE8FAE /* ContentView.swift */,
 				4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */,
 				4A69ED262C6A8CBE00DE8FAE /* Preview Content */,
-				4A5998902C95FDEF0086E34B /* AnimatedWidgetView.swift */,
 			);
 			path = "pookie-checker";
 			sourceTree = "<group>";
@@ -185,21 +175,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4A69ED302C6A8CBE00DE8FAE /* pookie-checkerTests */ = {
+		4ABD88052C9E3AFC000C9D1A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				4A69ED312C6A8CBE00DE8FAE /* pookie_checkerTests.swift */,
+				4ABD88062C9E3B04000C9D1A /* Home */,
 			);
-			path = "pookie-checkerTests";
+			path = ui;
 			sourceTree = "<group>";
 		};
-		4A69ED3A2C6A8CBE00DE8FAE /* pookie-checkerUITests */ = {
+		4ABD88062C9E3B04000C9D1A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4A69ED3B2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift */,
-				4A69ED3D2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift */,
+				4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */,
+				4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */,
 			);
-			path = "pookie-checkerUITests";
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5998912C95FDEF0086E34B /* AnimatedWidgetView.swift in Sources */,
-				4A5663552C991C0F0010650D /* LogEntry.swift in Sources */,
-				4A69ED232C6A8CBC00DE8FAE /* ContentView.swift in Sources */,
+				4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,
+				4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A69ED322C6A8CBE00DE8FAE /* pookie_checkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,8 +380,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A69ED3C2C6A8CBE00DE8FAE /* pookie_checkerUITests.swift in Sources */,
-				4A69ED3E2C6A8CBE00DE8FAE /* pookie_checkerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,9 +580,9 @@
 		4A69ED422C6A8CBE00DE8FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "pookie-checker/pookie-checker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pookie-checker/Preview Content\"";
@@ -624,9 +610,9 @@
 		4A69ED432C6A8CBE00DE8FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "pookie-checker/pookie-checker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pookie-checker/Preview Content\"";
@@ -654,7 +640,6 @@
 		4A69ED452C6A8CBE00DE8FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -674,7 +659,6 @@
 		4A69ED462C6A8CBE00DE8FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -694,7 +678,6 @@
 		4A69ED482C6A8CBE00DE8FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V6LX2TZ34;
@@ -712,7 +695,6 @@
 		4A69ED492C6A8CBE00DE8FAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2V6LX2TZ34;
