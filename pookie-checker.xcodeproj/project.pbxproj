@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		4A5998992C95FE940086E34B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5998982C95FE940086E34B /* WidgetKit.framework */; };
 		4A59989B2C95FE940086E34B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A59989A2C95FE940086E34B /* SwiftUI.framework */; };
-		4A59989E2C95FE940086E34B /* InterWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */; };
-		4A5998A02C95FE940086E34B /* InterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989F2C95FE940086E34B /* InterWidget.swift */; };
+		4A59989E2C95FE940086E34B /* PookieWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989D2C95FE940086E34B /* PookieWidgetBundle.swift */; };
+		4A5998A02C95FE940086E34B /* PookieWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989F2C95FE940086E34B /* PookieWidget.swift */; };
 		4A5998A22C95FE950086E34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5998A12C95FE950086E34B /* Assets.xcassets */; };
 		4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */; };
@@ -63,8 +63,8 @@
 		4A5998962C95FE940086E34B /* InterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5998982C95FE940086E34B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4A59989A2C95FE940086E34B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterWidgetBundle.swift; sourceTree = "<group>"; };
-		4A59989F2C95FE940086E34B /* InterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterWidget.swift; sourceTree = "<group>"; };
+		4A59989D2C95FE940086E34B /* PookieWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieWidgetBundle.swift; sourceTree = "<group>"; };
+		4A59989F2C95FE940086E34B /* PookieWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieWidget.swift; sourceTree = "<group>"; };
 		4A5998A12C95FE950086E34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5998A32C95FE950086E34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pookie-checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,8 +125,8 @@
 		4A59989C2C95FE940086E34B /* InterWidget */ = {
 			isa = PBXGroup;
 			children = (
-				4A59989D2C95FE940086E34B /* InterWidgetBundle.swift */,
-				4A59989F2C95FE940086E34B /* InterWidget.swift */,
+				4A59989D2C95FE940086E34B /* PookieWidgetBundle.swift */,
+				4A59989F2C95FE940086E34B /* PookieWidget.swift */,
 				4A5998A12C95FE950086E34B /* Assets.xcassets */,
 				4A5998A32C95FE950086E34B /* Info.plist */,
 			);
@@ -354,8 +354,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A5998A02C95FE940086E34B /* InterWidget.swift in Sources */,
-				4A59989E2C95FE940086E34B /* InterWidgetBundle.swift in Sources */,
+				4A5998A02C95FE940086E34B /* PookieWidget.swift in Sources */,
+				4A59989E2C95FE940086E34B /* PookieWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +594,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +625,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

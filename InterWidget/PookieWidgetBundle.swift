@@ -9,8 +9,8 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct InterWidgetBundle: WidgetBundle {
+struct PookieWidgetBundle: WidgetBundle {
     var body: some Widget {
-        InterWidget()
+        PookieWidget()
     }
 }

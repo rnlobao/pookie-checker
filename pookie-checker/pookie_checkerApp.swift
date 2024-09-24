@@ -12,6 +12,7 @@ struct pookie_checkerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView(viewModel: HomeViewModel())
+                .preferredColorScheme(.light)
         }
     }
 }
