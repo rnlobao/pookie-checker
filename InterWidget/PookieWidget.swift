@@ -1,33 +1,26 @@
-//
-//  InterWidget.swift
-//  InterWidget
-//
-//  Created by Robson Novato on 14/09/24.
-//
-
 import WidgetKit
 import SwiftUI
 import AppIntents
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-            SimpleEntry(date: Date(), quantidaDeMoedas: 1, imagem: "antes")
-        }
+    func placeholder(in context: Context) -> PookieWidgetEntry {
+        PookieWidgetEntry(date: Date(), quantidaDeMoedas: 1, imagem: "antes")
+    }
     
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-            let entry = SimpleEntry(date: Date(), quantidaDeMoedas: 1, imagem: "antes")
-            completion(entry)
-        }
+    func getSnapshot(in context: Context, completion: @escaping (PookieWidgetEntry) -> ()) {
+        let entry = PookieWidgetEntry(date: Date(), quantidaDeMoedas: 1, imagem: "antes")
+        completion(entry)
+    }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let currentDate = Date()
-        let entry = SimpleEntry(date: currentDate, quantidaDeMoedas: 1, imagem: "antes")
+        let entry = PookieWidgetEntry(date: currentDate, quantidaDeMoedas: 1, imagem: "antes")
         let timeline = Timeline(entries: [entry], policy: .atEnd)
         completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct PookieWidgetEntry: TimelineEntry {
     var date: Date
     let quantidaDeMoedas: Int
     let imagem: String
@@ -37,29 +30,35 @@ struct PookieWidgetEntryView : View {
     var entry: Provider.Entry
     
     var body: some View {
-        HStack {
-            Image(entry.imagem)
-                .resizable()
-                .frame(width: 100, height: 100)
-                .padding()
+        ZStack {
+            Color.clear
+                .ignoresSafeArea()
             
-            Spacer()
-            
-            Button(action: {
-                Task {
-                    let intent = AddIntent()
-                    _ = try await intent.perform() // Executa a intent
-                }
-            }) {
-                Text("Clique Aqui")
+            HStack {
+                Image(entry.imagem)
+                    .resizable()
+                    .frame(width: 100, height: 100)
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
+                
+                Spacer()
+                
+                Button(action: {
+                    Task {
+                        let intent = AddIntent()
+                        _ = try await intent.perform() // Executa a intent
+                    }
+                }) {
+                    Text("Clique Aqui")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
             }
+            .padding()
+            .preferredColorScheme(.light)
         }
-        .padding()
-        .preferredColorScheme(.light)
+        
     }
 }
 
@@ -68,9 +67,16 @@ struct PookieWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            PookieWidgetEntryView(entry: entry)
-                .padding()
-                .background()
+            if #available(iOS 17.0, *) {
+                PookieWidgetEntryView(entry: entry)
+                    .containerBackground(.fill.tertiary, for: .widget)
+                    .preferredColorScheme(.light)
+            } else {
+                PookieWidgetEntryView(entry: entry)
+                    .padding()
+                    .background()
+                    .preferredColorScheme(.light)
+            }
         }
     }
 }
@@ -93,7 +99,7 @@ struct AddIntent: AppIntent {
 #Preview(as: .systemMedium) {
     PookieWidget()
 } timeline: {
-    SimpleEntry(date: .now, quantidaDeMoedas: 1, imagem: "antes")
+    PookieWidgetEntry(date: .now, quantidaDeMoedas: 1, imagem: "antes")
 }
 
 
