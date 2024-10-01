@@ -16,6 +16,7 @@
 		4A5998A02C95FE940086E34B /* PookieWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989F2C95FE940086E34B /* PookieWidget.swift */; };
 		4A5998A22C95FE950086E34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5998A12C95FE950086E34B /* Assets.xcassets */; };
 		4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */; };
 		4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */; };
 		4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */; };
 		4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		4A59989F2C95FE940086E34B /* PookieWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieWidget.swift; sourceTree = "<group>"; };
 		4A5998A12C95FE950086E34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5998A32C95FE950086E34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePookieView.swift; sourceTree = "<group>"; };
 		4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pookie-checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerApp.swift; sourceTree = "<group>"; };
 		4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		4A91B9552CA8E5CF001D0973 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */,
 				4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */,
 			);
 			path = Components;
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */,
 				4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */,
 				4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,

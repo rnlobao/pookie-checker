@@ -2,10 +2,10 @@ import SwiftUI
 
 struct CodeGeneratorView: View {
     @ObservedObject var viewModel: HomeViewModel
-
+    
     var body: some View {
         HStack {
-            if !viewModel.isCodeGenerated {
+            if !viewModel.isCodeGenerated, !viewModel.showInput {
                 Button(action: {
                     viewModel.generateCode()
                 }) {
@@ -17,8 +17,8 @@ struct CodeGeneratorView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .transition(.scale)
-
+                .transition(.move(edge: .leading).combined(with: .scale))
+                
                 Button(action: {
                     viewModel.showInputCodeField()
                 }) {
@@ -30,36 +30,51 @@ struct CodeGeneratorView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
-                .transition(.scale)
-            } else {
-                HStack {
-                    TextField("Code...", text: $viewModel.inputText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                .transition(.move(edge: .trailing).combined(with: .scale))
 
-                    Button(action: {
-                        print("Código inserido: \(viewModel.inputText)")
-                        viewModel.isConnected = true
-                    }) {
-                        Text("Enviar")
-                            .font(.headline)
-                            .padding()
-                            .frame(height: 40)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+            } else {
+                Button(action: {
+                    withAnimation {
+                        viewModel.isCodeGenerated = false
+                        viewModel.showInput = false
                     }
+                }) {
+                    Image(systemName: "xmark")
+                        .font(.headline)
+                        .frame(width: 50, height: 50)
+                        .background(Color.gray)
+                        .foregroundColor(.white)
+                        .clipShape(Circle())
                 }
                 .transition(.scale)
-            }
-
-            if viewModel.showGeneratedCode, let code = viewModel.generatedCode {
-                Text("Your code: \(code)")
-                    .font(.headline)
-                    .padding()
-                    .transition(.move(edge: .trailing))
+                
+                if viewModel.showInput {
+                    HStack {
+                        TextField("Code...", text: $viewModel.inputText)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                        
+                        Button(action: {
+                            print("Código inserido: \(viewModel.inputText)")
+                        }) {
+                            Text("Connect")
+                                .font(.headline)
+                                .padding()
+                                .frame(height: 40)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                    }
+                    .transition(.scale)
+                } else if let code = viewModel.generatedCode {
+                    Text("Your code: \(code)")
+                        .font(.headline)
+                        .padding()
+                        .transition(.scale)
+                }
             }
         }
-        .animation(.easeInOut, value: viewModel.isCodeGenerated)
+        .animation(.easeInOut(duration: 0.5), value: viewModel.isCodeGenerated)
     }
 }

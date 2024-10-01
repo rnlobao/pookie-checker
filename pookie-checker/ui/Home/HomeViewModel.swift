@@ -5,10 +5,9 @@ import FirebaseFirestore
 class HomeViewModel: ObservableObject {
     @Published var inputText: String = ""
     @Published var generatedCode: String? = nil
-    @Published var showGeneratedCode: Bool = false
     @Published var selectedButtonIndex: Int? = nil
-    @Published var isConnected: Bool = false
     @Published var isCodeGenerated: Bool = false
+    @Published var showInput: Bool = false
     
     private let connectionService = ConnectionService()
     
@@ -19,19 +18,18 @@ class HomeViewModel: ObservableObject {
                 return
             }
             if let code {
-                self?.generatedCode = code
                 withAnimation {
+                    self?.showInput = false
                     self?.isCodeGenerated = true
+                    self?.generatedCode = code
                 }
-                self?.showGeneratedCode = true
-                self?.isConnected = true
             }
         }
     }
     
     func showInputCodeField() {
         withAnimation {
-            self.isCodeGenerated = true
+            showInput = true
         }
     }
 }

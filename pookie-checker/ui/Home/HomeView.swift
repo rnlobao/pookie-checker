@@ -1,9 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var viewModel: HomeViewModel
-    
-    let buttonImages = ["standing-dog", "standing-cat", "standing-panda", "standing-penguin"]
+    @ObservedObject var viewModel: HomeViewModel    
     
     var body: some View {
         VStack(spacing: 16) {
@@ -12,22 +10,7 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .padding(.top, 20)
             
-            HStack(spacing: 20) {
-                ForEach(0..<buttonImages.count, id: \.self) { index in
-                    Button(action: {
-                        viewModel.selectedButtonIndex = index
-                    }) {
-                        Image(buttonImages[index])
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(20)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .stroke(viewModel.selectedButtonIndex == index ? Color.blue : Color(white: 0.8), lineWidth: 2)
-                            )
-                    }
-                }
-            }
+            ChoosePookieView(viewModel: viewModel)
             
             Divider()
             
@@ -47,12 +30,12 @@ struct HomeView: View {
                     .font(.headline)
                     .padding()
                     .frame(maxWidth: .infinity, minHeight: 50)
-                    .background((viewModel.selectedButtonIndex != nil && viewModel.isConnected) ? Color.green : Color.gray)
+                    .background((viewModel.selectedButtonIndex != nil && viewModel.isCodeGenerated) ? Color.green : Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .padding(.horizontal)
             }
-            .disabled(viewModel.selectedButtonIndex == nil || !viewModel.isConnected)
+            .disabled(viewModel.selectedButtonIndex == nil || !viewModel.isCodeGenerated)
             
         }
         .padding(16)
