@@ -55,6 +55,7 @@ struct CodeGeneratorView: View {
                             .padding()
                         
                         Button(action: {
+//                            viewModel.checkCode(code: viewModel.inputText)
                             print("Código inserido: \(viewModel.inputText)")
                         }) {
                             Text("Connect")

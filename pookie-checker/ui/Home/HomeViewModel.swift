@@ -8,6 +8,8 @@ class HomeViewModel: ObservableObject {
     @Published var selectedButtonIndex: Int? = nil
     @Published var isCodeGenerated: Bool = false
     @Published var showInput: Bool = false
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: ErrorMessage? = nil
     
     private let connectionService = ConnectionService()
     
@@ -32,4 +34,5 @@ class HomeViewModel: ObservableObject {
             showInput = true
         }
     }
+    
 }

@@ -20,17 +20,6 @@ struct ChoosePookieView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(20)
-                        
-                        if viewModel.selectedButtonIndex == index && animateBorder {
-                            Image(systemName: "checkmark.circle.fill")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.blue)
-                                .offset(x: -35, y: -35)
-                                .opacity(animateBorder ? 1 : 0)
-                                .animation(.easeInOut(duration: 3), value: animateBorder)
-                                .zIndex(1)
-                        }
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
