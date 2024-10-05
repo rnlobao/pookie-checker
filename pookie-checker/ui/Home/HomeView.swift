@@ -20,7 +20,11 @@ struct HomeView: View {
                     .fontWeight(.bold)
                     .padding(.top, 20)
                 
-                CodeGeneratorView(viewModel: viewModel)
+                if viewModel.connectionSuccessful {
+                    ConnectionSuccessfulView()
+                } else {
+                    CodeGeneratorView(viewModel: viewModel)
+                }
                 
                 Spacer()
                 

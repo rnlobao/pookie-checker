@@ -10,6 +10,7 @@ class HomeViewModel: ObservableObject {
     @Published var showInput: Bool = false
     @Published var isLoading: Bool = false
     @Published var errorMessage: ErrorMessage? = nil
+    @Published var connectionSuccessful: Bool = false // Nova propriedade para monitorar o status da conexão
     
     private let connectionService = ConnectionService()
     
@@ -24,6 +25,7 @@ class HomeViewModel: ObservableObject {
                     self?.showInput = false
                     self?.isCodeGenerated = true
                     self?.generatedCode = code
+                    self?.startListeningForConnectionUpdates()
                 }
             }
         }
@@ -32,6 +34,30 @@ class HomeViewModel: ObservableObject {
     func showInputCodeField() {
         withAnimation {
             showInput = true
+        }
+    }
+    
+    func tryToConnect() {
+        connectionService.connectToCode(code: inputText) { [weak self] success, error in
+            DispatchQueue.main.async {
+                if let error {
+                    self?.errorMessage = ErrorMessage(message: error.localizedDescription)
+                } else if success {
+                    self?.connectionSuccessful = true
+                }
+            }
+        }
+    }
+    
+    func startListeningForConnectionUpdates() {
+        connectionService.listenForConnectionUpdates(code: inputText) { [weak self] success, error in
+            DispatchQueue.main.async {
+                if let error {
+                    self?.errorMessage = ErrorMessage(message: error.localizedDescription)
+                } else if success {
+                    self?.connectionSuccessful = true
+                }
+            }
         }
     }
     

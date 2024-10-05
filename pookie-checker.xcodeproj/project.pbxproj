@@ -26,6 +26,7 @@
 		4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */; };
 		4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */; };
 		4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */; };
+		4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGeneratorView.swift; sourceTree = "<group>"; };
 		4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSuccessfulView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 		4A91B9552CA8E5CF001D0973 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */,
 				4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */,
 				4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */,
 			);
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */,
+				4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */,
 				4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */,
 				4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */,
 				4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */,
