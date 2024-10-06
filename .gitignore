@@ -20,7 +20,3 @@ playground.xcworkspace
 # Ignorar arquivos de integração contínua (CI) temporários
 *.ipa
 *.app
-
-# Ignorar arquivos de cache e pods
-Pods/
-Carthage/
