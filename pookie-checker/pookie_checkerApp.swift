@@ -1,7 +1,7 @@
 import SwiftUI
 import Firebase
 
-var globalInstallationID: String?
+var globalInstallationID: String = ""
 
 @main
 struct pookie_checkerApp: App {
@@ -9,7 +9,7 @@ struct pookie_checkerApp: App {
     init() {
         FirebaseApp.configure()
         getFirebaseInstallationID { installationID in
-            if let installationID = installationID {
+            if let installationID {
                 globalInstallationID = installationID
                 print("Installation ID obtido: \(installationID)")
             } else {

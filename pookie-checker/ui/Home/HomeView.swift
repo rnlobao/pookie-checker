@@ -28,34 +28,27 @@ struct HomeView: View {
                 
                 Spacer()
                 
+                if viewModel.connectionSuccessful {
+                    Divider()
+                    
+                    
+                }
+                
                 Button(action: {
                     print("Botão clicado! Personagem selecionado: \(viewModel.selectedButtonIndex!)")
                 }) {
-                    Text("Iniciar")
+                    Text("Start")
                         .font(.headline)
                         .padding()
                         .frame(maxWidth: .infinity, minHeight: 50)
-                        .background((viewModel.selectedButtonIndex != nil && viewModel.isCodeGenerated) ? Color.green : Color.gray)
+                        .background(viewModel.canEnableStartButton() ? Color.green : Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .padding(.horizontal)
                 }
-                .disabled(viewModel.selectedButtonIndex == nil || !viewModel.isCodeGenerated)
+                .disabled(!viewModel.canEnableStartButton())
             }
             .padding(16)
-            
-            if viewModel.isLoading {
-                ZStack {
-                    Color.black.opacity(0.4).ignoresSafeArea()
-                    VStack {
-                        ProgressView("Connecting to the code...")
-                            .progressViewStyle(CircularProgressViewStyle())
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(10)
-                    }
-                }
-            }
         }
         .alert(item: $viewModel.errorMessage) { errorMessage in
             Alert(

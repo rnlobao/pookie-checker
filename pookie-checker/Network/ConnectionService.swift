@@ -4,7 +4,7 @@ import FirebaseInstallations
 class ConnectionService {
     private let db = Firestore.firestore()
     
-    func generateUniqueCode(completion: @escaping (String?, Error?) -> Void) {
+    func generateConnection(pookieID: Int, completion: @escaping (String?, Error?) -> Void) {
         let code = UUID().uuidString.prefix(6).uppercased()
         let collection = self.db.collection("connections")
         
@@ -19,6 +19,7 @@ class ConnectionService {
                     "user1Connected": true,
                     "user1ConnectedAt": FieldValue.serverTimestamp(),
                     "user1DeviceId": String(describing: globalInstallationID),
+                    "user1PookieId": pookieID,
                     "user2Connected": false,
                     "user2ConnectedAt": NSNull(),
                     "user2DeviceId": NSNull()
@@ -32,7 +33,7 @@ class ConnectionService {
                     }
                 }
             } else {
-                self.generateUniqueCode(completion: completion)
+                self.generateConnection(pookieID: pookieID, completion: completion)
             }
         }
     }

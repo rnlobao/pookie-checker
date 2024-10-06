@@ -5,17 +5,22 @@ import FirebaseFirestore
 class HomeViewModel: ObservableObject {
     @Published var inputText: String = ""
     @Published var generatedCode: String? = nil
+    
+    // Validador para saber se um Pookie está selecionado
     @Published var selectedButtonIndex: Int? = nil
     @Published var isCodeGenerated: Bool = false
     @Published var showInput: Bool = false
-    @Published var isLoading: Bool = false
+    @Published var connectionSuccessful: Bool = false
+    
     @Published var errorMessage: ErrorMessage? = nil
-    @Published var connectionSuccessful: Bool = false // Nova propriedade para monitorar o status da conexão
+
     
     private let connectionService = ConnectionService()
     
     func generateCode() {
-        connectionService.generateUniqueCode { [weak self] code, error in
+        guard let selectedButtonIndex else { return }
+        
+        connectionService.generateConnection(pookieID: selectedButtonIndex) { [weak self] code, error in
             if let error {
                 print("Erro ao gerar código: \(error.localizedDescription)")
                 return
@@ -25,8 +30,8 @@ class HomeViewModel: ObservableObject {
                     self?.showInput = false
                     self?.isCodeGenerated = true
                     self?.generatedCode = code
-                    self?.startListeningForConnectionUpdates()
                 }
+                self?.startListeningForConnectionUpdates(code)
             }
         }
     }
@@ -49,8 +54,8 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    func startListeningForConnectionUpdates() {
-        connectionService.listenForConnectionUpdates(code: inputText) { [weak self] success, error in
+    func startListeningForConnectionUpdates(_ code: String) {
+        connectionService.listenForConnectionUpdates(code: code) { [weak self] success, error in
             DispatchQueue.main.async {
                 if let error {
                     self?.errorMessage = ErrorMessage(message: error.localizedDescription)
@@ -59,6 +64,10 @@ class HomeViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func canEnableStartButton() -> Bool {
+        return connectionSuccessful
     }
     
 }
