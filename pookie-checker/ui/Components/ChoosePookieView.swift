@@ -28,10 +28,11 @@ struct ChoosePookieView: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .trim(from: 0, to: (viewModel.currentUserPookieID == index && animateBorder) ? 1 : 0)
-                            .stroke(Color.blue, lineWidth: 2)
+                            .stroke(viewModel.connectionSuccessful ? Color.green : Color.blue, lineWidth: 2)
                             .animation(.easeInOut(duration: 1), value: animateBorder)
                     )
                 }
+                .disabled(viewModel.connectionSuccessful)
                 .onAppear {
                     animateBorder = false
                 }

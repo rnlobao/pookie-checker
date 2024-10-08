@@ -13,7 +13,7 @@ struct PartnersPookieView: View {
             
             Button(action: {
                 imageFromPookie = viewModel.returnPookieInteraction()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     imageFromPookie = viewModel.returnPookieImage()
                 }
             }) {

@@ -22,10 +22,14 @@
 		4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */; };
 		4A69ED282C6A8CBE00DE8FAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */; };
 		4A69ED4B2C6A90BE00DE8FAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */; };
+		4A6A86432CB4A81600C91AAE /* PookieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A86422CB4A81300C91AAE /* PookieModel.swift */; };
+		4A6A86452CB4AD9900C91AAE /* PartnersPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A86442CB4AD9300C91AAE /* PartnersPookieView.swift */; };
 		4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B973C2CAF733D00CF6F30 /* ErrorMessage.swift */; };
 		4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */; };
 		4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */; };
 		4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */; };
+		4AF296D32CB5E49100F55EC4 /* HomeLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */; };
+		4AF296D52CB5E49900F55EC4 /* HomeLoggedInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */; };
 		4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,11 +88,15 @@
 		4A69ED2D2C6A8CBE00DE8FAE /* pookie-checkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED372C6A8CBE00DE8FAE /* pookie-checkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4A6A86422CB4A81300C91AAE /* PookieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieModel.swift; sourceTree = "<group>"; };
+		4A6A86442CB4AD9300C91AAE /* PartnersPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersPookieView.swift; sourceTree = "<group>"; };
 		4A8B973C2CAF733D00CF6F30 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		4A8BF8672C9BACA9001B5EBB /* pookie-checker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pookie-checker.entitlements"; sourceTree = "<group>"; };
 		4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
 		4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGeneratorView.swift; sourceTree = "<group>"; };
 		4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoggedInView.swift; sourceTree = "<group>"; };
+		4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoggedInViewModel.swift; sourceTree = "<group>"; };
 		4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSuccessfulView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4A91B9502CA8DCDB001D0973 /* Network */,
+				4A8B973B2CAF733700CF6F30 /* Models */,
 				4ABD88052C9E3AFC000C9D1A /* ui */,
 				4A8BF8672C9BACA9001B5EBB /* pookie-checker.entitlements */,
 				4A69ED4A2C6A90BE00DE8FAE /* GoogleService-Info.plist */,
@@ -195,6 +204,7 @@
 		4A8B973B2CAF733700CF6F30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A6A86422CB4A81300C91AAE /* PookieModel.swift */,
 				4A8B973C2CAF733D00CF6F30 /* ErrorMessage.swift */,
 			);
 			path = Models;
@@ -211,6 +221,7 @@
 		4A91B9552CA8E5CF001D0973 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4A6A86442CB4AD9300C91AAE /* PartnersPookieView.swift */,
 				4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */,
 				4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */,
 				4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */,
@@ -221,7 +232,7 @@
 		4ABD88052C9E3AFC000C9D1A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				4A8B973B2CAF733700CF6F30 /* Models */,
+				4AF296D12CB5E47000F55EC4 /* HomeLoggedIn */,
 				4A91B9552CA8E5CF001D0973 /* Components */,
 				4ABD88062C9E3B04000C9D1A /* Home */,
 			);
@@ -235,6 +246,15 @@
 				4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		4AF296D12CB5E47000F55EC4 /* HomeLoggedIn */ = {
+			isa = PBXGroup;
+			children = (
+				4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */,
+				4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */,
+			);
+			path = HomeLoggedIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,12 +431,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF296D52CB5E49900F55EC4 /* HomeLoggedInViewModel.swift in Sources */,
 				4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */,
+				4A6A86432CB4A81600C91AAE /* PookieModel.swift in Sources */,
 				4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */,
 				4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */,
 				4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */,
 				4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */,
+				4A6A86452CB4AD9900C91AAE /* PartnersPookieView.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,
+				4AF296D32CB5E49100F55EC4 /* HomeLoggedInView.swift in Sources */,
 				4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */,
 				4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */,
 			);
