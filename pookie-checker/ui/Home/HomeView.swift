@@ -26,16 +26,30 @@ struct HomeView: View {
                     CodeGeneratorView(viewModel: viewModel)
                 }
                 
-                Spacer()
-                
                 if viewModel.connectionSuccessful {
                     Divider()
-                    
+                                        
+                    VStack(spacing: 4) {
+                        Text("This is your partner's pookie")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding(.top, 20)
+                        
+                        Text("It will appear on your homescreen")
+                            .font(.body)
+                            .foregroundColor(.gray)
+                            .padding(.top, 10)
+                                                
+                        PartnersPookieView(viewModel: viewModel)
+                    }
+                    .frame(maxWidth: .infinity)
                     
                 }
                 
+                Spacer()
+                
                 Button(action: {
-                    print("Botão clicado! Personagem selecionado: \(viewModel.selectedButtonIndex!)")
+                    print("Botão clicado! Personagem selecionado: \(viewModel.currentUserPookieID!)")
                 }) {
                     Text("Start")
                         .font(.headline)

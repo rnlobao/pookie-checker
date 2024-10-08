@@ -9,7 +9,7 @@ class ConnectionService {
         let collection = self.db.collection("connections")
         
         collection.document(String(code)).getDocument { document, error in
-            if let error = error {
+            if let error {
                 completion(nil, error)
                 return
             }
@@ -22,7 +22,8 @@ class ConnectionService {
                     "user1PookieId": pookieID,
                     "user2Connected": false,
                     "user2ConnectedAt": NSNull(),
-                    "user2DeviceId": NSNull()
+                    "user2DeviceId": NSNull(),
+                    "user2PookieId": pookieID,
                 ]
                 
                 collection.document(String(code)).setData(data) { error in
@@ -39,63 +40,69 @@ class ConnectionService {
     }
 
     
-    func connectToCode(code: String, completion: @escaping (Bool, Error?) -> Void) {
+    func connectToCode(code: String, pookieId: Int, completion: @escaping (PookieModel, Error?) -> Void) {
         let docRef = self.db.collection("connections").document(code)
         
         docRef.getDocument { document, error in
-            if let error = error {
-                completion(false, ConnectionError.firestoreError(description: error.localizedDescription))
+            if let error {
+                completion(PookieModel(success: false), ConnectionError.firestoreError(description: error.localizedDescription))
                 return
             }
             
-            guard let document = document, document.exists else {
-                completion(false, ConnectionError.firestoreError(description: "Código não encontrado"))
+            guard let document, document.exists else {
+                completion(PookieModel(success: false), ConnectionError.firestoreError(description: "Código não encontrado"))
                 return
             }
             
             if let data = document.data(),
-               let user2Connected = data["user2Connected"] as? Bool {
+               let user2Connected = data["user2Connected"] as? Bool,
+               let user1PookieID = data["user2PookieId"] as? Int {
                 
                 if !user2Connected {
                     docRef.updateData([
                         "user2Connected": true,
                         "user2DeviceId": String(describing: globalInstallationID),
-                        "user2ConnectedAt": FieldValue.serverTimestamp()
+                        "user2ConnectedAt": FieldValue.serverTimestamp(),
+                        "user2PookieId": pookieId
                     ]) { error in
-                        if let error = error {
-                            completion(false, ConnectionError.firestoreError(description: error.localizedDescription))
+                        if let error {
+                            completion(PookieModel(success: false), ConnectionError.firestoreError(description: error.localizedDescription))
                         } else {
-                            completion(true, nil)
+                            completion(PookieModel(success: true, pookieID: user1PookieID), nil)
                         }
                     }
                 } else {
-                    completion(false, ConnectionError.firestoreError(description: "Alguém já se conectou a este código"))
+                    completion(PookieModel(success: false), ConnectionError.firestoreError(description: "Alguém já se conectou a este código"))
                 }
             }
         }
     }
     
-    func listenForConnectionUpdates(code: String, completion: @escaping (Bool, Error?) -> Void) {
+    func listenForConnectionUpdates(code: String, completion: @escaping (PookieModel, Error?) -> Void) {
         let docRef = db.collection("connections").document(code)
         
         docRef.addSnapshotListener { documentSnapshot, error in
             if let error {
-                completion(false, error)
+                completion(PookieModel(success: false), error)
                 return
             }
             
             guard let document = documentSnapshot, document.exists else {
-                completion(false, ConnectionError.firestoreError(description: "Documento não encontrado"))
+                completion(
+                    PookieModel(success: false),
+                    ConnectionError.firestoreError(description: "Documento não encontrado")
+                )
                 return
             }
             
             if let data = document.data(),
                let user1Connected = data["user1Connected"] as? Bool,
-               let user2Connected = data["user2Connected"] as? Bool {
+               let user2Connected = data["user2Connected"] as? Bool,
+               let user2PookieID = data["user2PookieId"] as? Int {
                 if user1Connected && user2Connected {
-                    completion(true, nil)
+                    completion(PookieModel(success: true, pookieID: user2PookieID), nil)
                 } else {
-                    completion(false, nil)
+                    completion(PookieModel(success: false), nil)
                 }
             }
         }

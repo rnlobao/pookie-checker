@@ -7,20 +7,21 @@ class HomeViewModel: ObservableObject {
     @Published var generatedCode: String? = nil
     
     // Validador para saber se um Pookie está selecionado
-    @Published var selectedButtonIndex: Int? = nil
+    @Published var currentUserPookieID: Int? = nil
+    @Published var partnerPookieID: Int? = 2
+    
     @Published var isCodeGenerated: Bool = false
     @Published var showInput: Bool = false
     @Published var connectionSuccessful: Bool = false
     
     @Published var errorMessage: ErrorMessage? = nil
 
-    
     private let connectionService = ConnectionService()
     
     func generateCode() {
-        guard let selectedButtonIndex else { return }
+        guard let currentUserPookieID else { return }
         
-        connectionService.generateConnection(pookieID: selectedButtonIndex) { [weak self] code, error in
+        connectionService.generateConnection(pookieID: currentUserPookieID) { [weak self] code, error in
             if let error {
                 print("Erro ao gerar código: \(error.localizedDescription)")
                 return
@@ -43,24 +44,28 @@ class HomeViewModel: ObservableObject {
     }
     
     func tryToConnect() {
-        connectionService.connectToCode(code: inputText) { [weak self] success, error in
+        guard let currentUserPookieID else { return }
+        
+        connectionService.connectToCode(code: inputText, pookieId: currentUserPookieID) { [weak self] response, error in
             DispatchQueue.main.async {
                 if let error {
                     self?.errorMessage = ErrorMessage(message: error.localizedDescription)
-                } else if success {
+                } else if response.success {
                     self?.connectionSuccessful = true
+                    self?.partnerPookieID = response.pookieID
                 }
             }
         }
     }
     
     func startListeningForConnectionUpdates(_ code: String) {
-        connectionService.listenForConnectionUpdates(code: code) { [weak self] success, error in
+        connectionService.listenForConnectionUpdates(code: code) { [weak self] response, error in
             DispatchQueue.main.async {
                 if let error {
                     self?.errorMessage = ErrorMessage(message: error.localizedDescription)
-                } else if success {
+                } else if response.success {
                     self?.connectionSuccessful = true
+                    self?.partnerPookieID = response.pookieID
                 }
             }
         }
@@ -70,4 +75,35 @@ class HomeViewModel: ObservableObject {
         return connectionSuccessful
     }
     
+    public func returnPookieImage() -> UIImage {
+        let images = ["standing-dog", "standing-cat", "standing-panda", "standing-penguin"]
+        switch partnerPookieID {
+        case 0:
+            return UIImage(named: images[0]) ?? UIImage()
+        case 1:
+            return UIImage(named: images[1]) ?? UIImage()
+        case 2:
+            return UIImage(named: images[2]) ?? UIImage()
+        case 3:
+            return UIImage(named: images[3]) ?? UIImage()
+        default:
+            return UIImage()
+        }
+    }
+    
+    public func returnPookieInteraction() -> UIImage {
+        let images = ["kiss-dog", "kiss-cat", "kiss-panda", "kiss-penguin"]
+        switch partnerPookieID {
+        case 0:
+            return UIImage(named: images[0]) ?? UIImage()
+        case 1:
+            return UIImage(named: images[1]) ?? UIImage()
+        case 2:
+            return UIImage(named: images[2]) ?? UIImage()
+        case 3:
+            return UIImage(named: images[3]) ?? UIImage()
+        default:
+            return UIImage()
+        }
+    }
 }
