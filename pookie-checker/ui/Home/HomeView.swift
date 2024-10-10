@@ -52,6 +52,7 @@ struct HomeView: View {
                     
                     Button(action: {
                         isNavigating = true
+                        viewModel.savePookiesInfo()
                     }) {
                         Text("Start")
                             .font(.headline)

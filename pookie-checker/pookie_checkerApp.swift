@@ -6,7 +6,12 @@ var globalInstallationID: String = ""
 @main
 struct pookie_checkerApp: App {
     
+    @State private var isButtonClicked: Bool
+    
     init() {
+        let didClickButton = UserDefaults.standard.bool(forKey: "logged")
+        self.isButtonClicked = didClickButton
+        
         FirebaseApp.configure()
         getFirebaseInstallationID { installationID in
             if let installationID {
@@ -20,8 +25,12 @@ struct pookie_checkerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel())
-                .preferredColorScheme(.light)
+            if isButtonClicked {
+                HomeLoggedInView(viewModel: HomeLoggedInViewModel())
+            } else {
+                HomeView(viewModel: HomeViewModel())
+                    .preferredColorScheme(.light)
+            }
         }
     }
     

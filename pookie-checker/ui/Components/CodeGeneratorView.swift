@@ -13,12 +13,12 @@ struct CodeGeneratorView: View {
                         .font(.headline)
                         .padding()
                         .frame(height: 60)
-                        .background(viewModel.currentUserPookieID != nil ? Color.green : Color.gray)
+                        .background(viewModel.userPookieID != nil ? Color.green : Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .transition(.move(edge: .leading).combined(with: .scale))
-                .disabled(viewModel.currentUserPookieID == nil)
+                .disabled(viewModel.userPookieID == nil)
                 
                 Button(action: {
                     viewModel.showInputCodeField()
@@ -27,12 +27,12 @@ struct CodeGeneratorView: View {
                         .font(.headline)
                         .padding()
                         .frame(height: 60)
-                        .background(viewModel.currentUserPookieID != nil ? Color.blue : Color.gray)
+                        .background(viewModel.userPookieID != nil ? Color.blue : Color.gray)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 .transition(.move(edge: .trailing).combined(with: .scale))
-                .disabled(viewModel.currentUserPookieID == nil)
+                .disabled(viewModel.userPookieID == nil)
 
             } else {
                 Button(action: {

@@ -11,7 +11,7 @@ struct ChoosePookieView: View {
             ForEach(0..<buttonImages.count, id: \.self) { index in
                 Button(action: {
                     withAnimation {
-                        viewModel.currentUserPookieID = index
+                        viewModel.userPookieID = index
                         animateBorder = true
                     }
                 }) {
@@ -27,7 +27,7 @@ struct ChoosePookieView: View {
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .trim(from: 0, to: (viewModel.currentUserPookieID == index && animateBorder) ? 1 : 0)
+                            .trim(from: 0, to: (viewModel.userPookieID == index && animateBorder) ? 1 : 0)
                             .stroke(viewModel.connectionSuccessful ? Color.green : Color.blue, lineWidth: 2)
                             .animation(.easeInOut(duration: 1), value: animateBorder)
                     )

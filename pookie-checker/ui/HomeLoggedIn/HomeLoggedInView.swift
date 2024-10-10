@@ -4,7 +4,10 @@ struct HomeLoggedInView: View {
     @ObservedObject var viewModel: HomeLoggedInViewModel
     
     var body: some View {
-        Text("oi")
+        Text("Your pookie")
+            .font(.title)
+            .fontWeight(.bold)
+            .padding(.top, 20)
     }
 }
 

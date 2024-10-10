@@ -1,13 +1,14 @@
 import SwiftUI
 import Combine
 import FirebaseFirestore
+import GoogleSignIn
 
 class HomeViewModel: ObservableObject {
     @Published var inputText: String = ""
     @Published var generatedCode: String? = nil
+    @Published var connectedCode: String? = nil
     
-    // Validador para saber se um Pookie está selecionado
-    @Published var currentUserPookieID: Int? = nil
+    @Published var userPookieID: Int? = nil
     @Published var partnerPookieID: Int? = 2
     
     @Published var isCodeGenerated: Bool = false
@@ -17,11 +18,12 @@ class HomeViewModel: ObservableObject {
     @Published var errorMessage: ErrorMessage? = nil
 
     private let connectionService = ConnectionService()
+    private let bundle = Bundle(for: HomeViewModel.self)
     
     func generateCode() {
-        guard let currentUserPookieID else { return }
+        guard let userPookieID else { return }
         
-        connectionService.generateConnection(pookieID: currentUserPookieID) { [weak self] code, error in
+        connectionService.generateConnection(pookieID: userPookieID) { [weak self] code, error in
             if let error {
                 print("Erro ao gerar código: \(error.localizedDescription)")
                 return
@@ -44,15 +46,16 @@ class HomeViewModel: ObservableObject {
     }
     
     func tryToConnect() {
-        guard let currentUserPookieID else { return }
+        guard let userPookieID else { return }
         
-        connectionService.connectToCode(code: inputText, pookieId: currentUserPookieID) { [weak self] response, error in
+        connectionService.connectToCode(code: inputText, pookieId: userPookieID) { [weak self] response, error in
             DispatchQueue.main.async {
                 if let error {
                     self?.errorMessage = ErrorMessage(message: error.localizedDescription)
                 } else if response.success {
                     self?.connectionSuccessful = true
                     self?.partnerPookieID = response.pookieID
+                    self?.connectedCode = self?.inputText
                 }
             }
         }
@@ -76,34 +79,23 @@ class HomeViewModel: ObservableObject {
     }
     
     public func returnPookieImage() -> UIImage {
+        guard let partnerPookieID else { return UIImage() }
         let images = ["standing-dog", "standing-cat", "standing-panda", "standing-penguin"]
-        switch partnerPookieID {
-        case 0:
-            return UIImage(named: images[0]) ?? UIImage()
-        case 1:
-            return UIImage(named: images[1]) ?? UIImage()
-        case 2:
-            return UIImage(named: images[2]) ?? UIImage()
-        case 3:
-            return UIImage(named: images[3]) ?? UIImage()
-        default:
-            return UIImage()
-        }
+        return UIImage(named: images[partnerPookieID]) ?? UIImage()
     }
     
     public func returnPookieInteraction() -> UIImage {
+        guard let partnerPookieID else { return UIImage() }
         let images = ["kiss-dog", "kiss-cat", "kiss-panda", "kiss-penguin"]
-        switch partnerPookieID {
-        case 0:
-            return UIImage(named: images[0]) ?? UIImage()
-        case 1:
-            return UIImage(named: images[1]) ?? UIImage()
-        case 2:
-            return UIImage(named: images[2]) ?? UIImage()
-        case 3:
-            return UIImage(named: images[3]) ?? UIImage()
-        default:
-            return UIImage()
+        return UIImage(named: images[partnerPookieID]) ?? UIImage()
+    }
+    
+    public func savePookiesInfo() {
+        UserDefaults.standard.set(true, forKey: "logged")
+        if let connectedCode {
+            UserDefaults.standard.set(connectedCode, forKey: "code")
+        } else if let generatedCode {
+            UserDefaults.standard.set(generatedCode, forKey: "code")
         }
     }
 }
