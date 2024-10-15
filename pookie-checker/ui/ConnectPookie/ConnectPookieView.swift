@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct HomeView: View {
-    @ObservedObject var viewModel = HomeViewModel()
+struct ConnectPookieView: View {
+    @ObservedObject var viewModel = ConnectPookieViewModel()
     @State private var isNavigating = false
     
     var body: some View {
@@ -67,9 +67,6 @@ struct HomeView: View {
                 }
                 .padding(16)
             }
-            .navigationDestination(isPresented: $isNavigating) {
-                HomeLoggedInView(viewModel: HomeLoggedInViewModel())
-            }
             .alert(item: $viewModel.errorMessage) { errorMessage in
                 Alert(
                     title: Text("Erro"),
@@ -83,6 +80,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        ConnectPookieView(viewModel: ConnectPookieViewModel())
     }
 }

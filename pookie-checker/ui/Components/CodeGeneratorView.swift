@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CodeGeneratorView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: ConnectPookieViewModel
     
     var body: some View {
         HStack {

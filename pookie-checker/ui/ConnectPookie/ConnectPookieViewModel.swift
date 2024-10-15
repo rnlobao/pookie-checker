@@ -3,7 +3,7 @@ import Combine
 import FirebaseFirestore
 import GoogleSignIn
 
-class HomeViewModel: ObservableObject {
+class ConnectPookieViewModel: ObservableObject {
     @Published var inputText: String = ""
     @Published var generatedCode: String? = nil
     @Published var connectedCode: String? = nil
@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
     @Published var errorMessage: ErrorMessage? = nil
 
     private let connectionService = ConnectionService()
-    private let bundle = Bundle(for: HomeViewModel.self)
+    private let bundle = Bundle(for: ConnectPookieViewModel.self)
     
     func generateCode() {
         guard let userPookieID else { return }

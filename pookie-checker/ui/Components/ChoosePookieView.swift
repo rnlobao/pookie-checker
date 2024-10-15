@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChoosePookieView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: ConnectPookieViewModel
     @State private var animateBorder: Bool = false
 
     let buttonImages = ["standing-dog", "standing-cat", "standing-panda", "standing-penguin"]

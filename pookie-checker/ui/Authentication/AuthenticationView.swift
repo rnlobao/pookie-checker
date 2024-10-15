@@ -27,7 +27,7 @@ struct AuthenticationView: View {
             GoogleSignInButton(
                 viewModel: GoogleSignInButtonViewModel(
                     scheme: .dark,
-                    style: .wide,
+                    style: .standard,
                     state: .normal
                 )) {
                     Task {
@@ -41,7 +41,7 @@ struct AuthenticationView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 16)
-                .padding(.bottom, 40)
+                .padding(.bottom, 60)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(UIColor.systemBackground))

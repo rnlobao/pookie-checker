@@ -14,15 +14,15 @@ class ConnectionService {
                 return
             }
             
-            if let document = document, !document.exists {
+            if let document = document, !document.exists, !userUID.isEmpty {
                 let data: [String: Any] = [
                     "user1Connected": true,
                     "user1ConnectedAt": FieldValue.serverTimestamp(),
-                    "user1DeviceId": String(describing: globalInstallationID),
+                    "user1Id": userUID,
                     "user1PookieId": pookieID,
                     "user2Connected": false,
                     "user2ConnectedAt": NSNull(),
-                    "user2DeviceId": NSNull(),
+                    "user2Id": NSNull(),
                     "user2PookieId": pookieID,
                 ]
                 
@@ -58,10 +58,10 @@ class ConnectionService {
                let user2Connected = data["user2Connected"] as? Bool,
                let user1PookieID = data["user2PookieId"] as? Int {
                 
-                if !user2Connected {
+                if !user2Connected, !userUID.isEmpty {
                     docRef.updateData([
                         "user2Connected": true,
-                        "user2DeviceId": String(describing: globalInstallationID),
+                        "user2Id": userUID,
                         "user2ConnectedAt": FieldValue.serverTimestamp(),
                         "user2PookieId": pookieId
                     ]) { error in

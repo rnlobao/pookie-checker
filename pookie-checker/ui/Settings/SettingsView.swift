@@ -6,8 +6,9 @@ struct SettingsView: View {
     @Binding var showSignInView: Bool
     
     var body: some View {
-        List {
-            Button("Log out") {
+        VStack {
+            
+            Button(action: {
                 Task {
                     do {
                         try viewModel.logOut()
@@ -16,8 +17,24 @@ struct SettingsView: View {
                         print(error)
                     }
                 }
+            }) {
+                Text("Log out")
+                    .font(.headline)
+                    .padding()
+                    .frame(maxWidth: .infinity, minHeight: 50)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding(.horizontal)
             }
+            Spacer()
         }
-        .padding()
+        .padding(16)
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView(showSignInView: .constant(true))
     }
 }

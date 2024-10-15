@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PartnersPookieView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var viewModel: ConnectPookieViewModel
     @State var imageFromPookie = UIImage()
     
     var body: some View {
@@ -38,7 +38,7 @@ struct PartnersPookieView: View {
 
 struct PartnersPookieViewView_Previews: PreviewProvider {
     static var previews: some View {
-        PartnersPookieView(viewModel: HomeViewModel())
+        PartnersPookieView(viewModel: ConnectPookieViewModel())
     }
 }
 

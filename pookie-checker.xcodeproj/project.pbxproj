@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4A1AC1242CB88D7B00582640 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1AC1232CB88D7B00582640 /* GoogleSignIn */; };
 		4A1AC1262CB88D7B00582640 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1AC1252CB88D7B00582640 /* GoogleSignInSwift */; };
+		4A2C73B72CBEA8B9005B0076 /* InteractPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73B62CBEA8B2005B0076 /* InteractPookieView.swift */; };
+		4A2C73B92CBEA8C3005B0076 /* InteractPookieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73B82CBEA8BC005B0076 /* InteractPookieViewModel.swift */; };
 		4A3E80262CA771E2006E3BB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80252CA771E2006E3BB0 /* FirebaseAnalytics */; };
 		4A3E80282CA771E2006E3BB0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80272CA771E2006E3BB0 /* FirebaseFirestore */; };
 		4A3E802A2CA771E2006E3BB0 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80292CA771E2006E3BB0 /* FirebaseFirestoreCombine-Community */; };
@@ -20,7 +22,7 @@
 		4A5998A62C95FE950086E34B /* InterWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A5998962C95FE940086E34B /* InterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */; };
 		4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */; };
-		4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */; };
+		4A69ED232C6A8CBC00DE8FAE /* ConnectPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69ED222C6A8CBC00DE8FAE /* ConnectPookieView.swift */; };
 		4A69ED252C6A8CBE00DE8FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */; };
 		4A69ED282C6A8CBE00DE8FAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */; };
 		4A6A86432CB4A81600C91AAE /* PookieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A86422CB4A81300C91AAE /* PookieModel.swift */; };
@@ -61,9 +63,7 @@
 		4AB501E02CBDED56003D28B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB501DF2CBDED52003D28B7 /* SettingsView.swift */; };
 		4AB501E22CBDED5C003D28B7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB501E12CBDED59003D28B7 /* SettingsViewModel.swift */; };
 		4AB501E52CBDED8A003D28B7 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB501E42CBDED7E003D28B7 /* RootView.swift */; };
-		4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */; };
-		4AF296D32CB5E49100F55EC4 /* HomeLoggedInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */; };
-		4AF296D52CB5E49900F55EC4 /* HomeLoggedInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */; };
+		4ABD88042C9E3AF8000C9D1A /* ConnectPookieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD88032C9E3AF4000C9D1A /* ConnectPookieViewModel.swift */; };
 		4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +106,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A2C73B62CBEA8B2005B0076 /* InteractPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractPookieView.swift; sourceTree = "<group>"; };
+		4A2C73B82CBEA8BC005B0076 /* InteractPookieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractPookieViewModel.swift; sourceTree = "<group>"; };
 		4A5998962C95FE940086E34B /* InterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5998982C95FE940086E34B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4A59989A2C95FE940086E34B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -116,7 +118,7 @@
 		4A5D72062CAB8F95003CAF5C /* ChoosePookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePookieView.swift; sourceTree = "<group>"; };
 		4A69ED1D2C6A8CBC00DE8FAE /* pookie-checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pookie-checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A69ED202C6A8CBC00DE8FAE /* pookie_checkerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pookie_checkerApp.swift; sourceTree = "<group>"; };
-		4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4A69ED222C6A8CBC00DE8FAE /* ConnectPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectPookieView.swift; sourceTree = "<group>"; };
 		4A69ED242C6A8CBE00DE8FAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A69ED2D2C6A8CBE00DE8FAE /* pookie-checkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,9 +140,7 @@
 		4AB501DF2CBDED52003D28B7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4AB501E12CBDED59003D28B7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		4AB501E42CBDED7E003D28B7 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoggedInView.swift; sourceTree = "<group>"; };
-		4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLoggedInViewModel.swift; sourceTree = "<group>"; };
+		4ABD88032C9E3AF4000C9D1A /* ConnectPookieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectPookieViewModel.swift; sourceTree = "<group>"; };
 		4AF445CA2CB1EC9C001D1570 /* ConnectionSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionSuccessfulView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +206,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A2C73B52CBEA8AB005B0076 /* InteractPookie */ = {
+			isa = PBXGroup;
+			children = (
+				4A2C73B82CBEA8BC005B0076 /* InteractPookieViewModel.swift */,
+				4A2C73B62CBEA8B2005B0076 /* InteractPookieView.swift */,
+			);
+			path = InteractPookie;
+			sourceTree = "<group>";
+		};
 		4A5998972C95FE940086E34B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,32 +349,23 @@
 		4ABD88052C9E3AFC000C9D1A /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				4A2C73B52CBEA8AB005B0076 /* InteractPookie */,
 				4AB501E32CBDED74003D28B7 /* TabBar */,
 				4AB501DE2CBDED4C003D28B7 /* Settings */,
 				4AB501D02CBDD26B003D28B7 /* Authentication */,
-				4AF296D12CB5E47000F55EC4 /* HomeLoggedIn */,
 				4A91B9552CA8E5CF001D0973 /* Components */,
-				4ABD88062C9E3B04000C9D1A /* Home */,
+				4ABD88062C9E3B04000C9D1A /* ConnectPookie */,
 			);
 			path = ui;
 			sourceTree = "<group>";
 		};
-		4ABD88062C9E3B04000C9D1A /* Home */ = {
+		4ABD88062C9E3B04000C9D1A /* ConnectPookie */ = {
 			isa = PBXGroup;
 			children = (
-				4ABD88032C9E3AF4000C9D1A /* HomeViewModel.swift */,
-				4A69ED222C6A8CBC00DE8FAE /* HomeView.swift */,
+				4ABD88032C9E3AF4000C9D1A /* ConnectPookieViewModel.swift */,
+				4A69ED222C6A8CBC00DE8FAE /* ConnectPookieView.swift */,
 			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		4AF296D12CB5E47000F55EC4 /* HomeLoggedIn */ = {
-			isa = PBXGroup;
-			children = (
-				4AF296D42CB5E49800F55EC4 /* HomeLoggedInViewModel.swift */,
-				4AF296D22CB5E48B00F55EC4 /* HomeLoggedInView.swift */,
-			);
-			path = HomeLoggedIn;
+			path = ConnectPookie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,8 +543,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF296D52CB5E49900F55EC4 /* HomeLoggedInViewModel.swift in Sources */,
 				4AB501D92CBDD7C8003D28B7 /* AuthenticationManager.swift in Sources */,
+				4A2C73B92CBEA8C3005B0076 /* InteractPookieViewModel.swift in Sources */,
 				4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */,
 				4AB501D42CBDD396003D28B7 /* AuthenticationViewModel.swift in Sources */,
 				4AB501D72CBDD622003D28B7 /* Utilities.swift in Sources */,
@@ -552,18 +552,18 @@
 				4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */,
 				4AB501D22CBDD277003D28B7 /* AuthenticationView.swift in Sources */,
 				4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */,
-				4A69ED232C6A8CBC00DE8FAE /* HomeView.swift in Sources */,
+				4A69ED232C6A8CBC00DE8FAE /* ConnectPookieView.swift in Sources */,
 				4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */,
 				4A6A86452CB4AD9900C91AAE /* PartnersPookieView.swift in Sources */,
 				4AB501DD2CBDE637003D28B7 /* AuthDataResultModel.swift in Sources */,
 				4AB501DB2CBDE61A003D28B7 /* GoogleSignInResultModel.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,
 				4AB501E22CBDED5C003D28B7 /* SettingsViewModel.swift in Sources */,
-				4AF296D32CB5E49100F55EC4 /* HomeLoggedInView.swift in Sources */,
-				4ABD88042C9E3AF8000C9D1A /* HomeViewModel.swift in Sources */,
+				4ABD88042C9E3AF8000C9D1A /* ConnectPookieViewModel.swift in Sources */,
 				4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */,
 				4AB501E52CBDED8A003D28B7 /* RootView.swift in Sources */,
 				4AB501E02CBDED56003D28B7 /* SettingsView.swift in Sources */,
+				4A2C73B72CBEA8B9005B0076 /* InteractPookieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

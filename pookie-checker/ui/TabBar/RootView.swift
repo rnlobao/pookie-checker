@@ -7,7 +7,7 @@ struct RootView: View {
         ZStack {
             if !showSigninView {
                 TabView {
-                    HomeView()
+                    ConnectPookieView()
                         .tabItem {
                             Label("Home", systemImage: "house")
                         }
@@ -32,5 +32,6 @@ struct RootView: View {
     private func checkAuthenticationStatus() {
         let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
         self.showSigninView = authUser == nil
+        userUID = authUser?.uid ?? ""
     }
 }
