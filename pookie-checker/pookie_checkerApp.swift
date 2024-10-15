@@ -1,6 +1,10 @@
 import SwiftUI
 import Firebase
 
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+
 var globalInstallationID: String = ""
 
 @main
@@ -25,12 +29,8 @@ struct pookie_checkerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if isButtonClicked {
-                HomeLoggedInView(viewModel: HomeLoggedInViewModel())
-            } else {
-                HomeView(viewModel: HomeViewModel())
-                    .preferredColorScheme(.light)
-            }
+            RootView()
+                .preferredColorScheme(.light)
         }
     }
     
