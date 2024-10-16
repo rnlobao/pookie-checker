@@ -16,6 +16,7 @@ class ConnectPookieViewModel: ObservableObject {
     @Published var connectionSuccessful: Bool = false
     
     @Published var errorMessage: ErrorMessage? = nil
+    @ObservedObject var globalState = GlobalState.shared
 
     private let connectionService = ConnectionService()
     private let bundle = Bundle(for: ConnectPookieViewModel.self)
@@ -78,24 +79,35 @@ class ConnectPookieViewModel: ObservableObject {
         return connectionSuccessful
     }
     
-    public func returnPookieImage() -> UIImage {
+    func returnPookieImage() -> UIImage {
         guard let partnerPookieID else { return UIImage() }
         let images = ["standing-dog", "standing-cat", "standing-panda", "standing-penguin"]
         return UIImage(named: images[partnerPookieID]) ?? UIImage()
     }
     
-    public func returnPookieInteraction() -> UIImage {
+    func returnPookieInteraction() -> UIImage {
         guard let partnerPookieID else { return UIImage() }
         let images = ["kiss-dog", "kiss-cat", "kiss-panda", "kiss-penguin"]
         return UIImage(named: images[partnerPookieID]) ?? UIImage()
     }
     
-    public func savePookiesInfo() {
-        UserDefaults.standard.set(true, forKey: "logged")
-        if let connectedCode {
-            UserDefaults.standard.set(connectedCode, forKey: "code")
-        } else if let generatedCode {
-            UserDefaults.standard.set(generatedCode, forKey: "code")
-        }
+    func connectSuccessfully() {
+        globalState.global_userIsConnected = true
+    }
+    
+    func cleanInformation() {
+        self.inputText = ""
+        self.generatedCode = nil
+        self.connectedCode = nil
+        
+        self.userPookieID = nil
+        self.partnerPookieID = 0
+        
+        self.isCodeGenerated = false
+        self.showInput = false
+        self.connectionSuccessful = false
+        
+        self.errorMessage = nil
+        self.globalState.global_userIsConnected = false
     }
 }

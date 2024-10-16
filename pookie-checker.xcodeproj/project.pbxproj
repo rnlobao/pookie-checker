@@ -11,10 +11,11 @@
 		4A1AC1262CB88D7B00582640 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A1AC1252CB88D7B00582640 /* GoogleSignInSwift */; };
 		4A2C73B72CBEA8B9005B0076 /* InteractPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73B62CBEA8B2005B0076 /* InteractPookieView.swift */; };
 		4A2C73B92CBEA8C3005B0076 /* InteractPookieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73B82CBEA8BC005B0076 /* InteractPookieViewModel.swift */; };
-		4A2C73BF2CBEA93C005B0076 /* ConnectPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73BE2CBEA938005B0076 /* ConnectPookieView.swift */; };
+		4A2C73C12CBEA967005B0076 /* ConnectPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2C73C02CBEA967005B0076 /* ConnectPookieView.swift */; };
 		4A3E80262CA771E2006E3BB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80252CA771E2006E3BB0 /* FirebaseAnalytics */; };
 		4A3E80282CA771E2006E3BB0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80272CA771E2006E3BB0 /* FirebaseFirestore */; };
 		4A3E802A2CA771E2006E3BB0 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4A3E80292CA771E2006E3BB0 /* FirebaseFirestoreCombine-Community */; };
+		4A444B562CC030CF00FD9D0D /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A444B552CC030CD00FD9D0D /* GlobalState.swift */; };
 		4A5998992C95FE940086E34B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5998982C95FE940086E34B /* WidgetKit.framework */; };
 		4A59989B2C95FE940086E34B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A59989A2C95FE940086E34B /* SwiftUI.framework */; };
 		4A59989E2C95FE940086E34B /* PookieWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59989D2C95FE940086E34B /* PookieWidgetBundle.swift */; };
@@ -108,7 +109,8 @@
 /* Begin PBXFileReference section */
 		4A2C73B62CBEA8B2005B0076 /* InteractPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractPookieView.swift; sourceTree = "<group>"; };
 		4A2C73B82CBEA8BC005B0076 /* InteractPookieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractPookieViewModel.swift; sourceTree = "<group>"; };
-		4A2C73BE2CBEA938005B0076 /* ConnectPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectPookieView.swift; sourceTree = "<group>"; };
+		4A2C73C02CBEA967005B0076 /* ConnectPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectPookieView.swift; sourceTree = "<group>"; };
+		4A444B552CC030CD00FD9D0D /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 		4A5998962C95FE940086E34B /* InterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = InterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5998982C95FE940086E34B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		4A59989A2C95FE940086E34B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -324,6 +326,7 @@
 		4AB501D52CBDD618003D28B7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4A444B552CC030CD00FD9D0D /* GlobalState.swift */,
 				4AB501D62CBDD61D003D28B7 /* Utilities.swift */,
 			);
 			path = Utilities;
@@ -362,7 +365,7 @@
 		4ABD88062C9E3B04000C9D1A /* ConnectPookie */ = {
 			isa = PBXGroup;
 			children = (
-				4A2C73BE2CBEA938005B0076 /* ConnectPookieView.swift */,
+				4A2C73C02CBEA967005B0076 /* ConnectPookieView.swift */,
 				4ABD88032C9E3AF4000C9D1A /* ConnectPookieViewModel.swift */,
 			);
 			path = ConnectPookie;
@@ -557,10 +560,11 @@
 				4AB501DD2CBDE637003D28B7 /* AuthDataResultModel.swift in Sources */,
 				4AB501DB2CBDE61A003D28B7 /* GoogleSignInResultModel.swift in Sources */,
 				4A69ED212C6A8CBC00DE8FAE /* pookie_checkerApp.swift in Sources */,
-				4A2C73BF2CBEA93C005B0076 /* ConnectPookieView.swift in Sources */,
+				4A2C73C12CBEA967005B0076 /* ConnectPookieView.swift in Sources */,
 				4AB501E22CBDED5C003D28B7 /* SettingsViewModel.swift in Sources */,
 				4ABD88042C9E3AF8000C9D1A /* ConnectPookieViewModel.swift in Sources */,
 				4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */,
+				4A444B562CC030CF00FD9D0D /* GlobalState.swift in Sources */,
 				4AB501E52CBDED8A003D28B7 /* RootView.swift in Sources */,
 				4AB501E02CBDED56003D28B7 /* SettingsView.swift in Sources */,
 				4A2C73B72CBEA8B9005B0076 /* InteractPookieView.swift in Sources */,

@@ -6,10 +6,16 @@ struct RootView: View {
     var body: some View {
         ZStack {
             if !showSigninView {
+                
                 TabView {
                     ConnectPookieView()
                         .tabItem {
-                            Label("Home", systemImage: "house")
+                            Label("Connection", systemImage: "app.connected.to.app.below.fill")
+                        }
+                    
+                    InteractPookieView()
+                        .tabItem {
+                            Label("Interact", systemImage: "play.fill")
                         }
                     
                     SettingsView(showSignInView: $showSigninView)
@@ -32,6 +38,6 @@ struct RootView: View {
     private func checkAuthenticationStatus() {
         let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
         self.showSigninView = authUser == nil
-        userUID = authUser?.uid ?? ""
+        gloabl_userUID = authUser?.uid ?? ""
     }
 }

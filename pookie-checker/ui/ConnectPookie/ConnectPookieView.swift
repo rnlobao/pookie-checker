@@ -2,11 +2,31 @@ import SwiftUI
 
 struct ConnectPookieView: View {
     @ObservedObject var viewModel = ConnectPookieViewModel()
-    @State private var isNavigating = false
+    @State private var isConnected = false
     
     var body: some View {
-        NavigationStack {
-            ZStack {
+        ZStack {
+            if isConnected {
+                VStack {
+                    Text("You are connected")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .padding()
+                    
+                    Button(action: {
+                        viewModel.cleanInformation()
+                        isConnected = false
+                    }) {
+                        Text("X")
+                            .font(.title)
+                            .frame(width: 100, height: 50)
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(25)
+                    }
+                }
+                .transition(.opacity)
+            } else {
                 VStack(spacing: 16) {
                     Text("Choose your pookie")
                         .font(.title)
@@ -45,14 +65,15 @@ struct ConnectPookieView: View {
                             PartnersPookieView(viewModel: viewModel)
                         }
                         .frame(maxWidth: .infinity)
-                        
                     }
                     
                     Spacer()
                     
                     Button(action: {
-                        isNavigating = true
-                        viewModel.savePookiesInfo()
+                        if viewModel.canEnableStartButton() {
+                            isConnected = true
+                            viewModel.connectSuccessfully()
+                        }
                     }) {
                         Text("Start")
                             .font(.headline)
@@ -66,19 +87,21 @@ struct ConnectPookieView: View {
                     .disabled(!viewModel.canEnableStartButton())
                 }
                 .padding(16)
+                .transition(.opacity)
             }
-            .alert(item: $viewModel.errorMessage) { errorMessage in
-                Alert(
-                    title: Text("Erro"),
-                    message: Text(errorMessage.message),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
+        }
+        .animation(.easeInOut(duration: 0.5), value: isConnected)
+        .alert(item: $viewModel.errorMessage) { errorMessage in
+            Alert(
+                title: Text("Erro"),
+                message: Text(errorMessage.message),
+                dismissButton: .default(Text("OK"))
+            )
         }
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct ConnectPookieView_Previews: PreviewProvider {
     static var previews: some View {
         ConnectPookieView(viewModel: ConnectPookieViewModel())
     }

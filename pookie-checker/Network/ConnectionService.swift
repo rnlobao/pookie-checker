@@ -14,11 +14,11 @@ class ConnectionService {
                 return
             }
             
-            if let document = document, !document.exists, !userUID.isEmpty {
+            if let document = document, !document.exists, !gloabl_userUID.isEmpty {
                 let data: [String: Any] = [
                     "user1Connected": true,
                     "user1ConnectedAt": FieldValue.serverTimestamp(),
-                    "user1Id": userUID,
+                    "user1Id": gloabl_userUID,
                     "user1PookieId": pookieID,
                     "user2Connected": false,
                     "user2ConnectedAt": NSNull(),
@@ -58,10 +58,10 @@ class ConnectionService {
                let user2Connected = data["user2Connected"] as? Bool,
                let user1PookieID = data["user2PookieId"] as? Int {
                 
-                if !user2Connected, !userUID.isEmpty {
+                if !user2Connected, !gloabl_userUID.isEmpty {
                     docRef.updateData([
                         "user2Connected": true,
-                        "user2Id": userUID,
+                        "user2Id": gloabl_userUID,
                         "user2ConnectedAt": FieldValue.serverTimestamp(),
                         "user2PookieId": pookieId
                     ]) { error in
