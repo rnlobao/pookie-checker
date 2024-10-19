@@ -28,6 +28,8 @@
 		4A69ED282C6A8CBE00DE8FAE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A69ED272C6A8CBE00DE8FAE /* Preview Assets.xcassets */; };
 		4A6A86432CB4A81600C91AAE /* PookieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A86422CB4A81300C91AAE /* PookieModel.swift */; };
 		4A6A86452CB4AD9900C91AAE /* PartnersPookieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A86442CB4AD9300C91AAE /* PartnersPookieView.swift */; };
+		4A7C19892CC3EF9700D86E24 /* CacheDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C19882CC3EF8F00D86E24 /* CacheDataManager.swift */; };
+		4A7C198B2CC3F38800D86E24 /* PookieConnectedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C198A2CC3F38000D86E24 /* PookieConnectedModel.swift */; };
 		4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B973C2CAF733D00CF6F30 /* ErrorMessage.swift */; };
 		4A91B9542CA8DE23001D0973 /* ConnectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */; };
 		4A91B9572CA8E5F2001D0973 /* CodeGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A91B9562CA8E5DD001D0973 /* CodeGeneratorView.swift */; };
@@ -127,6 +129,8 @@
 		4A69ED372C6A8CBE00DE8FAE /* pookie-checkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pookie-checkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A6A86422CB4A81300C91AAE /* PookieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieModel.swift; sourceTree = "<group>"; };
 		4A6A86442CB4AD9300C91AAE /* PartnersPookieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersPookieView.swift; sourceTree = "<group>"; };
+		4A7C19882CC3EF8F00D86E24 /* CacheDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheDataManager.swift; sourceTree = "<group>"; };
+		4A7C198A2CC3F38000D86E24 /* PookieConnectedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PookieConnectedModel.swift; sourceTree = "<group>"; };
 		4A8B973C2CAF733D00CF6F30 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		4A8BF8672C9BACA9001B5EBB /* pookie-checker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "pookie-checker.entitlements"; sourceTree = "<group>"; };
 		4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionService.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		4A8B973B2CAF733700CF6F30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A7C198A2CC3F38000D86E24 /* PookieConnectedModel.swift */,
 				4AB501DC2CBDE636003D28B7 /* AuthDataResultModel.swift */,
 				4AB501DA2CBDE615003D28B7 /* GoogleSignInResultModel.swift */,
 				4A6A86422CB4A81300C91AAE /* PookieModel.swift */,
@@ -297,6 +302,7 @@
 		4A91B9502CA8DCDB001D0973 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				4A7C19882CC3EF8F00D86E24 /* CacheDataManager.swift */,
 				4AB501D82CBDD7C3003D28B7 /* AuthenticationManager.swift */,
 				4A91B9532CA8DE1F001D0973 /* ConnectionService.swift */,
 			);
@@ -546,12 +552,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7C198B2CC3F38800D86E24 /* PookieConnectedModel.swift in Sources */,
 				4AB501D92CBDD7C8003D28B7 /* AuthenticationManager.swift in Sources */,
 				4A2C73B92CBEA8C3005B0076 /* InteractPookieViewModel.swift in Sources */,
 				4A5D72072CAB8FA3003CAF5C /* ChoosePookieView.swift in Sources */,
 				4AB501D42CBDD396003D28B7 /* AuthenticationViewModel.swift in Sources */,
 				4AB501D72CBDD622003D28B7 /* Utilities.swift in Sources */,
 				4A6A86432CB4A81600C91AAE /* PookieModel.swift in Sources */,
+				4A7C19892CC3EF9700D86E24 /* CacheDataManager.swift in Sources */,
 				4AF445CB2CB1ECBC001D1570 /* ConnectionSuccessfulView.swift in Sources */,
 				4AB501D22CBDD277003D28B7 /* AuthenticationView.swift in Sources */,
 				4A8B973D2CAF734100CF6F30 /* ErrorMessage.swift in Sources */,

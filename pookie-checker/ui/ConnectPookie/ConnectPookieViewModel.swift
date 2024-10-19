@@ -109,5 +109,6 @@ class ConnectPookieViewModel: ObservableObject {
         
         self.errorMessage = nil
         self.globalState.global_userIsConnected = false
+        connectionService.clearCacheConnection()
     }
 }

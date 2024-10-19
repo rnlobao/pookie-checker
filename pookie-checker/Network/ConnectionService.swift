@@ -3,6 +3,7 @@ import FirebaseInstallations
 
 class ConnectionService {
     private let db = Firestore.firestore()
+    private let localStorage = CacheDataManager()
     
     func generateConnection(pookieID: Int, completion: @escaping (String?, Error?) -> Void) {
         let code = UUID().uuidString.prefix(6).uppercased()
@@ -14,14 +15,12 @@ class ConnectionService {
                 return
             }
             
-            if let document = document, !document.exists, !gloabl_userUID.isEmpty {
+            if let document, !document.exists, !gloabl_userUID.isEmpty {
                 let data: [String: Any] = [
                     "user1Connected": true,
-                    "user1ConnectedAt": FieldValue.serverTimestamp(),
                     "user1Id": gloabl_userUID,
                     "user1PookieId": pookieID,
                     "user2Connected": false,
-                    "user2ConnectedAt": NSNull(),
                     "user2Id": NSNull(),
                     "user2PookieId": pookieID,
                 ]
@@ -38,19 +37,25 @@ class ConnectionService {
             }
         }
     }
-
+    
     
     func connectToCode(code: String, pookieId: Int, completion: @escaping (PookieModel, Error?) -> Void) {
         let docRef = self.db.collection("connections").document(code)
         
-        docRef.getDocument { document, error in
+        docRef.getDocument {
+            document,
+            error in
             if let error {
                 completion(PookieModel(success: false), ConnectionError.firestoreError(description: error.localizedDescription))
                 return
             }
             
-            guard let document, document.exists else {
-                completion(PookieModel(success: false), ConnectionError.firestoreError(description: "Código não encontrado"))
+            guard let document,
+                  document.exists else {
+                completion(
+                    PookieModel(success: false),
+                    ConnectionError.firestoreError(description: "Código não encontrado")
+                )
                 return
             }
             
@@ -58,21 +63,32 @@ class ConnectionService {
                let user2Connected = data["user2Connected"] as? Bool,
                let user1PookieID = data["user2PookieId"] as? Int {
                 
-                if !user2Connected, !gloabl_userUID.isEmpty {
+                if !user2Connected {
                     docRef.updateData([
                         "user2Connected": true,
                         "user2Id": gloabl_userUID,
-                        "user2ConnectedAt": FieldValue.serverTimestamp(),
                         "user2PookieId": pookieId
-                    ]) { error in
+                    ]) { [weak self] error in
                         if let error {
-                            completion(PookieModel(success: false), ConnectionError.firestoreError(description: error.localizedDescription))
+                            completion(
+                                PookieModel(success: false),
+                                ConnectionError.firestoreError(description: error.localizedDescription)
+                            )
                         } else {
-                            completion(PookieModel(success: true, pookieID: user1PookieID), nil)
+                            self?.localStorage.saveUserCodeConnection(code)
+                            completion(
+                                PookieModel(success: true, pookieID: user1PookieID),
+                                nil
+                            )
                         }
                     }
                 } else {
-                    completion(PookieModel(success: false), ConnectionError.firestoreError(description: "Alguém já se conectou a este código"))
+                    completion(
+                        PookieModel(
+                            success: false
+                        ),
+                        ConnectionError.firestoreError(description: "Alguém já se conectou a este código")
+                    )
                 }
             }
         }
@@ -81,7 +97,7 @@ class ConnectionService {
     func listenForConnectionUpdates(code: String, completion: @escaping (PookieModel, Error?) -> Void) {
         let docRef = db.collection("connections").document(code)
         
-        docRef.addSnapshotListener { documentSnapshot, error in
+        docRef.addSnapshotListener { [weak self] documentSnapshot, error in
             if let error {
                 completion(PookieModel(success: false), error)
                 return
@@ -100,11 +116,42 @@ class ConnectionService {
                let user2Connected = data["user2Connected"] as? Bool,
                let user2PookieID = data["user2PookieId"] as? Int {
                 if user1Connected && user2Connected {
+                    self?.localStorage.saveUserCodeConnection(code)
                     completion(PookieModel(success: true, pookieID: user2PookieID), nil)
                 } else {
                     completion(PookieModel(success: false), nil)
                 }
             }
+        }
+    }
+    
+    func clearCacheConnection() {
+        localStorage.clearUserCodeConnection()
+    }
+    
+}
+
+extension ConnectionService {
+    func attemptFirebaseConnection() {
+        if let savedUserCode = localStorage.getUserCodeConnection() {
+            print("Tentando buscar documento com código salvo: \(savedUserCode)")
+            
+            let docRef = db.collection("connections").document(savedUserCode)
+            
+            docRef.getDocument { (document, error) in
+                if let error = error {
+                    print("Erro ao tentar buscar documento: \(error.localizedDescription)")
+                    return
+                }
+                
+                if let document, document.exists {
+                    print("Documento encontrado: \(document.documentID)")
+                } else {
+                    print("Nenhum documento encontrado com esse código.")
+                }
+            }
+        } else {
+            print("Nenhum código salvo no cache. Direcionando para tela de login.")
         }
     }
     
