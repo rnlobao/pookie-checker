@@ -2,11 +2,10 @@ import SwiftUI
 
 struct ConnectPookieView: View {
     @ObservedObject var viewModel = ConnectPookieViewModel()
-    @State private var isConnected = false
     
     var body: some View {
         ZStack {
-            if isConnected {
+            if viewModel.isUserConnected() {
                 VStack {
                     Text("You are connected")
                         .font(.largeTitle)
@@ -15,7 +14,6 @@ struct ConnectPookieView: View {
                     
                     Button(action: {
                         viewModel.cleanInformation()
-                        isConnected = false
                     }) {
                         Text("X")
                             .font(.title)
@@ -71,7 +69,6 @@ struct ConnectPookieView: View {
                     
                     Button(action: {
                         if viewModel.canEnableStartButton() {
-                            isConnected = true
                             viewModel.connectSuccessfully()
                         }
                     }) {
@@ -90,7 +87,7 @@ struct ConnectPookieView: View {
                 .transition(.opacity)
             }
         }
-        .animation(.easeInOut(duration: 0.5), value: isConnected)
+        .animation(.easeInOut(duration: 0.5), value: viewModel.isUserConnected())
         .alert(item: $viewModel.errorMessage) { errorMessage in
             Alert(
                 title: Text("Erro"),

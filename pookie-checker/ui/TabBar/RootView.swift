@@ -1,12 +1,11 @@
 import SwiftUI
 
 struct RootView: View {
-    @State private var showSigninView = false
+    @ObservedObject var viewModel = RootViewModel()
     
     var body: some View {
         ZStack {
-            if !showSigninView {
-                
+            if !viewModel.showSigninView {
                 TabView {
                     ConnectPookieView()
                         .tabItem {
@@ -18,7 +17,7 @@ struct RootView: View {
                             Label("Interact", systemImage: "play.fill")
                         }
                     
-                    SettingsView(showSignInView: $showSigninView)
+                    SettingsView(showSignInView: $viewModel.showSigninView)
                         .tabItem {
                             Label("Settings", systemImage: "gearshape")
                         }
@@ -26,18 +25,13 @@ struct RootView: View {
             }
         }
         .onAppear {
-            checkAuthenticationStatus()
+            viewModel.checkAuthenticationStatus()
+            viewModel.retrieveData()
         }
-        .fullScreenCover(isPresented: $showSigninView) {
+        .fullScreenCover(isPresented: $viewModel.showSigninView) {
             NavigationStack {
-                AuthenticationView(showSignView: $showSigninView)
+                AuthenticationView(showSignView: $viewModel.showSigninView)
             }
         }
-    }
-    
-    private func checkAuthenticationStatus() {
-        let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-        self.showSigninView = authUser == nil
-        gloabl_userUID = authUser?.uid ?? ""
     }
 }

@@ -75,7 +75,6 @@ class ConnectionService {
                                 ConnectionError.firestoreError(description: error.localizedDescription)
                             )
                         } else {
-                            self?.localStorage.saveUserCodeConnection(code)
                             completion(
                                 PookieModel(success: true, pookieID: user1PookieID),
                                 nil
@@ -116,7 +115,6 @@ class ConnectionService {
                let user2Connected = data["user2Connected"] as? Bool,
                let user2PookieID = data["user2PookieId"] as? Int {
                 if user1Connected && user2Connected {
-                    self?.localStorage.saveUserCodeConnection(code)
                     completion(PookieModel(success: true, pookieID: user2PookieID), nil)
                 } else {
                     completion(PookieModel(success: false), nil)
@@ -145,7 +143,10 @@ extension ConnectionService {
                 }
                 
                 if let document, document.exists {
-                    print("Documento encontrado: \(document.documentID)")
+                    if let pookieModel = PookieConnectedModel(from: document) {
+                    } else {
+                        print("Falha ao criar o modelo a partir do documento.")
+                    }
                 } else {
                     print("Nenhum documento encontrado com esse código.")
                 }

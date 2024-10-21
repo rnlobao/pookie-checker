@@ -15,5 +15,14 @@ struct CacheDataManager {
         let userDefaults = UserDefaults.standard
         return userDefaults.string(forKey: "codigoFirebase")
     }
+    
+    func isUserConnected() -> Bool {
+        let userDefaults = UserDefaults.standard
+        if let savedUserCode = userDefaults.string(forKey: "codigoFirebase"), !savedUserCode.isEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 

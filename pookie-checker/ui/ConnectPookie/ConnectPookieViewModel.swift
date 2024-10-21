@@ -16,9 +16,10 @@ class ConnectPookieViewModel: ObservableObject {
     @Published var connectionSuccessful: Bool = false
     
     @Published var errorMessage: ErrorMessage? = nil
-    @ObservedObject var globalState = GlobalState.shared
-
+    
     private let connectionService = ConnectionService()
+    private let cacheService = CacheDataManager()
+
     private let bundle = Bundle(for: ConnectPookieViewModel.self)
     
     func generateCode() {
@@ -69,6 +70,7 @@ class ConnectPookieViewModel: ObservableObject {
                     self?.errorMessage = ErrorMessage(message: error.localizedDescription)
                 } else if response.success {
                     self?.connectionSuccessful = true
+                    self?.connectedCode = code
                     self?.partnerPookieID = response.pookieID
                 }
             }
@@ -91,8 +93,12 @@ class ConnectPookieViewModel: ObservableObject {
         return UIImage(named: images[partnerPookieID]) ?? UIImage()
     }
     
+    func isUserConnected() -> Bool {
+        return cacheService.isUserConnected()
+    }
+    
     func connectSuccessfully() {
-        globalState.global_userIsConnected = true
+        cacheService.saveUserCodeConnection(connectedCode ?? "")
     }
     
     func cleanInformation() {
@@ -108,7 +114,6 @@ class ConnectPookieViewModel: ObservableObject {
         self.connectionSuccessful = false
         
         self.errorMessage = nil
-        self.globalState.global_userIsConnected = false
         connectionService.clearCacheConnection()
     }
 }

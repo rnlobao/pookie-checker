@@ -8,7 +8,7 @@ import GoogleSignIn
 var gloabl_userUID: String = ""
 
 @main
-struct pookie_checkerApp: App {        
+struct pookie_checkerApp: App {
     init() {
         FirebaseApp.configure()
     }
